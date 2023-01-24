@@ -96,7 +96,7 @@ requestRouter.post('/requests/perdiem', async (req, res) => {
     res.send(body);
 });
 // const server = 'http://esformsbackend.herokuapp.com/';
- const server = 'http://localhost:3002/';
+ const server = 'https://emmanuel1255.github.io/esformsbackend/';
 
 requestRouter.post(
     '/requests/pettycash',
