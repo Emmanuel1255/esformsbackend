@@ -4,7 +4,7 @@ module.exports = function (user, req, id, file = null) {
     let totalArr = [];
 
     // const server = 'http://localhost:3001/';
-    const server = 'http://localhost:3002/';
+    const server = 'https://esforms.onrender.com/';
     const fileName = file !== null ? file.filename : '#';
 
     let i = 1;
@@ -421,7 +421,7 @@ module.exports = function (user, req, id, file = null) {
                                                         <tbody>
                                                           <tr>
                                                             <td align="center" bgcolor="#2695df" class="inner-td" style="border-radius:6px; font-size:16px; text-align:center; background-color:inherit;">
-                                                              <a href="http://localhost:3002/approve/pettycash?id=${id}" style="background-color:#2695df; border:0px solid #333333; border-color:#333333; border-radius:5px; border-width:0px; display:inline-block; font-weight:bold; letter-spacing:0px; line-height:normal; padding:12px 18px 12px 18px; text-align:center; text-decoration:none; border-style:solid; font-family:inherit; font-size:18px; color:#ffffff; width:174px; margin: 5px 0;" target="_blank">Approve</a>
+                                                              <a href="https://esforms.onrender.com/approve/pettycash?id=${id}" style="background-color:#2695df; border:0px solid #333333; border-color:#333333; border-radius:5px; border-width:0px; display:inline-block; font-weight:bold; letter-spacing:0px; line-height:normal; padding:12px 18px 12px 18px; text-align:center; text-decoration:none; border-style:solid; font-family:inherit; font-size:18px; color:#ffffff; width:174px; margin: 5px 0;" target="_blank">Approve</a>
                                                             </td>
                                                           </tr>
                                                         </tbody>

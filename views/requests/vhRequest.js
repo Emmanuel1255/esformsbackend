@@ -360,7 +360,7 @@ module.exports = function (user, req, id) {
                                                                 <tbody>
                                                                   <tr>
                                                                     <td align="center" bgcolor="#2695df" class="inner-td" style="border-radius:6px; font-size:16px; text-align:center; background-color:inherit;">
-                                                                      <a href="http://localhost:3002/approve/vehicle?id=${id}" style="background-color:#2695df; border:0px solid #333333; border-color:#333333; border-radius:5px; border-width:0px; display:inline-block; font-weight:bold; letter-spacing:0px; line-height:normal; padding:12px 18px 12px 18px; text-align:center; text-decoration:none; border-style:solid; font-family:inherit; font-size:18px; color:#ffffff; width:174px; margin: 5px 0;" target="_blank">Approve</a>
+                                                                      <a href="https://esforms.onrender.com/approve/vehicle?id=${id}" style="background-color:#2695df; border:0px solid #333333; border-color:#333333; border-radius:5px; border-width:0px; display:inline-block; font-weight:bold; letter-spacing:0px; line-height:normal; padding:12px 18px 12px 18px; text-align:center; text-decoration:none; border-style:solid; font-family:inherit; font-size:18px; color:#ffffff; width:174px; margin: 5px 0;" target="_blank">Approve</a>
                                                                     </td>
                                                                   </tr>
                                                                 </tbody>
@@ -385,7 +385,7 @@ module.exports = function (user, req, id) {
                                                                 <tbody>
                                                                   <tr>
                                                                     <td align="center" bgcolor="#df2b26" class="inner-td" style="border-radius:6px; font-size:16px; text-align:center; background-color:inherit;">
-                                                                      <a href="http://localhost:3002/reject/vehicle?id=${id}" style="background-color:#df2b26; border:0px solid #333333; border-color:#333333; border-radius:5px; border-width:0px; color:#ffffff; display:inline-block; font-size:18px; font-weight:bold; letter-spacing:0px; line-height:normal; padding:12px 18px 12px 18px; text-align:center; text-decoration:none; border-style:solid; font-family:inherit; width:174px; margin: 5px 0;" target="_blank">Reject</a>
+                                                                      <a href="https://esforms.onrender.com/reject/vehicle?id=${id}" style="background-color:#df2b26; border:0px solid #333333; border-color:#333333; border-radius:5px; border-width:0px; color:#ffffff; display:inline-block; font-size:18px; font-weight:bold; letter-spacing:0px; line-height:normal; padding:12px 18px 12px 18px; text-align:center; text-decoration:none; border-style:solid; font-family:inherit; width:174px; margin: 5px 0;" target="_blank">Reject</a>
                                                                     </td>
                                                                   </tr>
                                                                 </tbody>
