@@ -1,0 +1,11 @@
+Email group for finance
+Maintance
+
+Department requestes
+
+Budget code for all department
+
+Posted to the person
+
+Retairement
+After the financial controller receive the mail and approve the request the Line Manage, Request person and finance person get notified
