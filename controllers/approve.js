@@ -158,7 +158,7 @@ approveRouter.get('/allusers', async (req, res) => {
   try {
     await Mongo_Client.connect();
     const db = Mongo_Client.db('esforms');
-    const Collection = db.collection('users');
+    const Collection = db.collection('newusers');
 
     const query = {};
     const users = await Collection.find(query).toArray();
