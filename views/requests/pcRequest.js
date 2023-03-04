@@ -3,16 +3,18 @@ module.exports = function (user, req, id, file = null) {
     let viewData = '';
     let totalArr = [];
 
-    // const server = 'http://localhost:3001/';
-    const server = 'https://esforms.onrender.com/';
+    const server = 'http://localhost:3002/';
+    // const server = 'https://esforms.onrender.com/';
     const fileName = file !== null ? file.filename : '#';
 
     let i = 1;
     for (const item in data) {
         totalArr.push(parseInt(`${data[item].total}`));
+        
         viewData += `<tr style="background-color:${
             i % 2 !== 0 ? 'white' : 'lightsteelblue'
         }"><td>${data[item].name}</td>`;
+        viewData += `<td>${(data[item].budgetcode)}</td>`;
         viewData += `<td>${(data[item].description, i)}</td>`;
         viewData += `<td>${data[item].cost}</td>`;
         viewData += `<td>${data[item].amount}</td>`;
@@ -327,7 +329,7 @@ module.exports = function (user, req, id, file = null) {
                                             req.department
                                         } | Request Currency: ${
             req.currency
-        } | Budget Code: ${req.budgetcode}</div>
+        }</div>
 <h3>Invoices <a href=${server}${fileName}>HERE</a></h3>
                                   </tr>
                                 </tbody>
@@ -363,6 +365,7 @@ module.exports = function (user, req, id, file = null) {
                                 <thead>
                                   <tr>
                                     <th>Name</th>
+                                    <th>Budget Code</th>
                                     <th>Description</th>
                                     <th>Unit Cost</th>
                                     <th>Quantity</th>
@@ -373,6 +376,7 @@ module.exports = function (user, req, id, file = null) {
                                   ${viewData}
                                   <tr style="background-color:royalblue; font-weight:bold">
                                     <td> Total</td>
+                                    <td>-</td>
                                     <td>-</td>
                                     <td>-</td>
                                     <td>-</td>

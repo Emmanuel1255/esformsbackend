@@ -67,6 +67,7 @@ approveRouter.get('/approve/perdiemfinance', async (req, res) => {
     const query = { _id: id };
     const request = await Collection.findOne(query);
     const user = request.user;
+    await Collection.updateOne(query, { $set: { approvalStatus: "approved" }});
     await sendMail(pdfinanceMsg(user, request),pduserlmMsg(user, request));
     return res.send(
       'You have approved this request. Relevant Parties will be notified.'

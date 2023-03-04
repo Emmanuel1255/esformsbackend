@@ -16,6 +16,10 @@ const rejectRouter = require('./controllers/reject');
 const viewRouter = require('./controllers/vrequest');
 const path = require('path');
 
+
+// Require the reminderJob.js file
+require('./controllers/reminderJob');
+
 global.appRoot = path.resolve(__dirname);
 app.use(cors());
 app.use(bodyParser.json());
@@ -33,6 +37,7 @@ app.get('/', (req, res) => {
 app.get('/users', requestRouter);
 app.get('/allusers',approveRouter);
 app.get('/viewrequest', requestRouter);
+app.get('/addusers', requestRouter)
 app.post('/requests/perdiem', requestRouter);
 app.post('/requests/pettycash', requestRouter);
 app.post('/requests/pettycash/2', requestRouter);
