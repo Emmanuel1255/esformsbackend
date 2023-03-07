@@ -30,7 +30,7 @@ module.exports = function (user, req, id, file = null) {
     //         : director
 
     return {
-        to: [user['Line Manager Email Address']],
+        to:'emmanuel.kamanda@sl.easysolar.org',
         bcc: 'request-tracker@easysolar.org',
         from: 'techadmin@easysolar.org', // Use the email address or domain you verified above
         subject: `Petty Cash Request from ${user['Full Name']}`,
