@@ -3,8 +3,8 @@ module.exports = function (user, req, id, file = null) {
     let viewData = '';
     let totalArr = [];
 
-    const server = 'http://localhost:3002/';
-    // const server = 'https://esforms.onrender.com/';
+    // const server = 'http://localhost:3002/';
+    const server = 'https://esforms.onrender.com/';
     const fileName = file !== null ? file.filename : '#';
 
     let i = 1;
@@ -31,7 +31,7 @@ module.exports = function (user, req, id, file = null) {
 
     return {
         to: [user['Line Manager Email Address']],
-        // bcc: 'request-tracker@easysolar.org',
+        bcc: 'request-tracker@easysolar.org',
         from: 'techadmin@easysolar.org', // Use the email address or domain you verified above
         subject: `Petty Cash Request from ${user['Full Name']}`,
         html: `

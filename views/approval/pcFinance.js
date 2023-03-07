@@ -9,6 +9,7 @@ module.exports = function (user, req,details) {
       viewData += `<tr style="background-color:${
         i % 2 !== 0 ? 'white' : 'lightsteelblue'
       }"><td>${data[item].name}</td>`;
+      viewData += `<td>${(data[item].budgetcode)}</td>`;
       viewData += `<td>${(data[item].description, i)}</td>`;
       viewData += `<td>${data[item].cost}</td>`;
       viewData += `<td>${data[item].amount}</td>`;
@@ -24,7 +25,7 @@ module.exports = function (user, req,details) {
     //         : director
   
     return {
-      to: [user['Line Manager Email Address']],
+      to: ['muctarr.rahim@easysolar.org'],
       // bcc: 'request-tracker@easysolar.org',
       from: 'techadmin@easysolar.org', // Use the email address or domain you verified above
       subject: `Petty Cash Request from ${user['Full Name']}`,
@@ -325,7 +326,7 @@ module.exports = function (user, req,details) {
                                               details.department
                                             } | Request Currency: ${
         details.currency
-      } | Budget Code: ${details.budgetcode}</div>
+      } </div>
                                             <h3>Invoices <a href=${
                                               details.invoiceLink
                                             }>HERE</a></h3>
@@ -363,6 +364,7 @@ module.exports = function (user, req,details) {
                                     <thead>
                                       <tr>
                                         <th>Name</th>
+                                        <th>Budget Code</th>
                                         <th>Description</th>
                                         <th>Unit Cost</th>
                                         <th>Quantity</th>
@@ -373,6 +375,7 @@ module.exports = function (user, req,details) {
                                       ${viewData}
                                       <tr style="background-color:royalblue; font-weight:bold">
                                         <td> Total</td>
+                                        <td>-</td>
                                         <td>-</td>
                                         <td>-</td>
                                         <td>-</td>
@@ -435,7 +438,7 @@ module.exports = function (user, req,details) {
               <tbody>
                 <tr>
                 <td align="center" bgcolor="#df2b26" class="inner-td" style="border-radius:6px; font-size:16px; text-align:center; background-color:inherit;">
-                  <a href="http://localhost:3000/reject/perdiem?id=${req._id}}" style="background-color:#df2b26; border:0px solid #333333; border-color:#333333; border-radius:5px; border-width:0px; color:#ffffff; display:inline-block; font-size:18px; font-weight:bold; letter-spacing:0px; line-height:normal; padding:12px 18px 12px 18px; text-align:center; text-decoration:none; border-style:solid; font-family:inherit; width:174px; margin: 5px 0;" target="_blank">Reject</a>
+                  <a href="https://esforms.onrender.com/reject/perdiem?id=${req._id}}" style="background-color:#df2b26; border:0px solid #333333; border-color:#333333; border-radius:5px; border-width:0px; color:#ffffff; display:inline-block; font-size:18px; font-weight:bold; letter-spacing:0px; line-height:normal; padding:12px 18px 12px 18px; text-align:center; text-decoration:none; border-style:solid; font-family:inherit; width:174px; margin: 5px 0;" target="_blank">Reject</a>
                 </td>
                 </tr>
               </tbody>

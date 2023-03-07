@@ -9,6 +9,7 @@ module.exports = function (user, req,details) {
       viewData += `<tr style="background-color:${
         i % 2 !== 0 ? 'white' : 'lightsteelblue'
       }"><td>${data[item].name}</td>`;
+      viewData += `<td>${(data[item].budgetcode)}</td>`;
       viewData += `<td>${(data[item].description, i)}</td>`;
       viewData += `<td>${data[item].cost}</td>`;
       viewData += `<td>${data[item].amount}</td>`;
@@ -24,7 +25,7 @@ module.exports = function (user, req,details) {
     //         : director
   
     return {
-      to: [user['Line Manager Email Address']],
+      to: [user['Employee Email Address']],
       // bcc: 'request-tracker@easysolar.org',
       from: 'techadmin@easysolar.org', // Use the email address or domain you verified above
       subject: `Petty Cash Request from ${user['Full Name']}`,
@@ -325,7 +326,7 @@ module.exports = function (user, req,details) {
                                               details.department
                                             } | Request Currency: ${
         details.currency
-      } | Budget Code: ${details.budgetcode}</div>
+      } </div>
                                             <h3>Invoices <a href=${
                                               details.invoiceLink
                                             }>HERE</a></h3>
@@ -363,6 +364,7 @@ module.exports = function (user, req,details) {
                                     <thead>
                                       <tr>
                                         <th>Name</th>
+                                        <th>Budget Code</th>
                                         <th>Description</th>
                                         <th>Unit Cost</th>
                                         <th>Quantity</th>
@@ -373,6 +375,7 @@ module.exports = function (user, req,details) {
                                       ${viewData}
                                       <tr style="background-color:royalblue; font-weight:bold">
                                         <td> Total</td>
+                                        <td>-</td>
                                         <td>-</td>
                                         <td>-</td>
                                         <td>-</td>

@@ -9,6 +9,7 @@ module.exports = function (user, req,details) {
     viewData += `<tr style="background-color:${
       i % 2 !== 0 ? 'white' : 'lightsteelblue'
     }"><td>${data[item].name}</td>`;
+    viewData += `<td>${(data[item].budgetcode)}</td>`;
     viewData += `<td>${(data[item].description, i)}</td>`;
     viewData += `<td>${data[item].cost}</td>`;
     viewData += `<td>${data[item].amount}</td>`;
@@ -24,7 +25,7 @@ module.exports = function (user, req,details) {
   //         : director
 
   return {
-    to: [user['Line Manager Email Address']],
+    to: [user['Employee Email Address']],
     // bcc: 'request-tracker@easysolar.org',
     from: 'techadmin@easysolar.org', // Use the email address or domain you verified above
     subject: `Petty Cash Request from ${user['Full Name']}`,
@@ -259,12 +260,10 @@ module.exports = function (user, req,details) {
                                       <td style="padding:20px 20px 10px 20px; line-height:12px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content">
                                         <div>
                                           <div style="font-family: inherit; text-align: center">Hello ${
-                                           user['Line Manager Name']
+                                           user['Full Name']
                                           }</div>
                                           <div style="font-family: inherit; text-align: center"><br></div>
-                                          <div style="font-family: inherit; text-align: center">Request from ${
-                                            user['Full Name']
-                                          } - ${user['Job Title']}</div>
+                                          <div style="font-family: inherit; text-align: center">Your Per Diem Request has been approved by your Line Manager - ${user['Line Manager Name']} </div>
                                           <div></div>
                                         </div>
                                       </td>
@@ -327,7 +326,7 @@ module.exports = function (user, req,details) {
                                             details.department
                                           } | Request Currency: ${
       details.currency
-    } | Budget Code: ${details.budgetcode}</div>
+    } </div>
                                           <h3>Invoices <a href=${
                                             details.invoiceLink
                                           }>HERE</a></h3>
@@ -365,6 +364,7 @@ module.exports = function (user, req,details) {
                                   <thead>
                                     <tr>
                                       <th>Name</th>
+                                      <th>Budget Code</th>
                                       <th>Description</th>
                                       <th>Unit Cost</th>
                                       <th>Quantity</th>
@@ -375,6 +375,7 @@ module.exports = function (user, req,details) {
                                     ${viewData}
                                     <tr style="background-color:royalblue; font-weight:bold">
                                       <td> Total</td>
+                                      <td>-</td>
                                       <td>-</td>
                                       <td>-</td>
                                       <td>-</td>

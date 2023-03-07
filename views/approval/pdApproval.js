@@ -4,7 +4,7 @@ module.exports = function (user, req) {
       ? 'dsafinance@sl.easysolar.org'
       : 'finance@lib.easysolar.org';
   return {
-    to: ['emmanuel.kamanda@sl.easysolar.org'],
+    to: [user['Employee Email Address']],
     // cc: [user['Employee Email Address']],
     // bcc: 'request-tracker@easysolar.org',
     from: 'techadmin@easysolar.org', // Use the email address or domain you verified above
