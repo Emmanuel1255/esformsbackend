@@ -30,8 +30,13 @@ module.exports = function (user, req, id, file = null) {
     //         : director
 
     return {
+<<<<<<< HEAD
         to: 'emmanuel.kamanda@sl.easysolar.org',
         // bcc: 'request-tracker@easysolar.org',
+=======
+        to:'emmanuel.kamanda@sl.easysolar.org',
+        bcc: 'request-tracker@easysolar.org',
+>>>>>>> eb5a31a36d790324c9d7069a1c26aad5f07e4fc2
         from: 'techadmin@easysolar.org', // Use the email address or domain you verified above
         subject: `Petty Cash Request from ${user['Full Name']}`,
         html: `
