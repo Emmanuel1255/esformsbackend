@@ -3,9 +3,9 @@ module.exports = function (user, req, id, file = null) {
     let viewData = '';
     let totalArr = [];
 
-    // const server = 'http://localhost:3002/';
-    const server = 'https://esforms.onrender.com/';
-    const fileName = file !== null ? file.filename : '#';
+    const server = 'http://localhost:3002/';
+    // const server = 'https://esforms.onrender.com/';
+    const fileName = file ? file.filename : null;
 
     let i = 1;
     for (const item in data) {
@@ -30,8 +30,8 @@ module.exports = function (user, req, id, file = null) {
     //         : director
 
     return {
-        to: [user['Line Manager Email Address']],
-        bcc: 'request-tracker@easysolar.org',
+        to: 'emmanuel.kamanda@sl.easysolar.org',
+        // bcc: 'request-tracker@easysolar.org',
         from: 'techadmin@easysolar.org', // Use the email address or domain you verified above
         subject: `Petty Cash Request from ${user['Full Name']}`,
         html: `
@@ -274,26 +274,7 @@ module.exports = function (user, req, id, file = null) {
                                 </tbody>
                               </table>
 
-                              <table class="module" role="module" data-type="spacer" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="10dfe38b-ab1a-4083-80ca-725cb09e3c1c">
-                                <tbody>
-                                  <tr>
-                                    <td style="padding:0px 0px 30px 0px;" role="module-content" bgcolor="">
-                                    </td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                              <table class="module">
-                                <tbody>
-                                  <tr>
-                                    <td style="padding:18px 30px 18px 40px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content">
-                                      <div>
-                                        <div style="font-family: inherit; text-align: inherit"><span style="font-size: 28px">Payment Details</span></div>
-                                        <div></div>
-                                      </div>
-                                    </td>
-                                  </tr>
-                                </tbody>
-                              </table>
+                              
                               <table class="module" role="module" data-type="divider" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="86c0feb7-e890-4382-bb8e-b1910742ba10.1.1">
                                 <tbody>
                                   <tr>
@@ -311,26 +292,8 @@ module.exports = function (user, req, id, file = null) {
                               </table>
                               <table class="module payment" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="ef0f9e06-1b02-4b22-b5e8-dc8f6bb9b3b1.1.1.1.1" data-mc-module-version="2019-10-22">
                                 <tbody>
-                                  <tr>
-                                    <td style="padding:30px 20px 0px 40px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content">
-                                      <div>
-                                        <div style="font-family: inherit; text-align: inherit">Bank Name: ${
-                                            req.bankname || 'N/A'
-                                        } | Bank Account Name: ${
-            req.accountname || 'N/A'
-        } </div>
-
-                                        <div style="font-family: inherit; text-align: inherit">Mobile Money #: ${
-                                            req.momonumber || 'N/A'
-                                        } | BBAN #: ${
-            req.bbandnumber || 'N/A'
-        }</div>
-                                        <div style="font-family: inherit; text-align: inherit">Department: ${
-                                            req.department
-                                        } | Request Currency: ${
-            req.currency
-        }</div>
-<h3>Invoices <a href=${server}${fileName}>HERE</a></h3>
+                                  <tr> 
+                                  ${fileName ? `<h3>Invoices <a href="${server}${fileName}">HERE</a></h3>` : ''}
                                   </tr>
                                 </tbody>
                               </table>
@@ -425,7 +388,7 @@ module.exports = function (user, req, id, file = null) {
                                                         <tbody>
                                                           <tr>
                                                             <td align="center" bgcolor="#2695df" class="inner-td" style="border-radius:6px; font-size:16px; text-align:center; background-color:inherit;">
-                                                              <a href="https://esforms.onrender.com/approve/pettycashfinance?id=${id}" style="background-color:#2695df; border:0px solid #333333; border-color:#333333; border-radius:5px; border-width:0px; display:inline-block; font-weight:bold; letter-spacing:0px; line-height:normal; padding:12px 18px 12px 18px; text-align:center; text-decoration:none; border-style:solid; font-family:inherit; font-size:18px; color:#ffffff; width:174px; margin: 5px 0;" target="_blank">Approve</a>
+                                                              <a href="http://localhost:3002/approve/pettycashfinance?id=${id}" style="background-color:#2695df; border:0px solid #333333; border-color:#333333; border-radius:5px; border-width:0px; display:inline-block; font-weight:bold; letter-spacing:0px; line-height:normal; padding:12px 18px 12px 18px; text-align:center; text-decoration:none; border-style:solid; font-family:inherit; font-size:18px; color:#ffffff; width:174px; margin: 5px 0;" target="_blank">Approve</a>
                                                             </td>
                                                           </tr>
                                                         </tbody>
@@ -450,7 +413,7 @@ module.exports = function (user, req, id, file = null) {
                                                         <tbody>
                                                           <tr>
                                                             <td align="center" bgcolor="#df2b26" class="inner-td" style="border-radius:6px; font-size:16px; text-align:center; background-color:inherit;">
-                                                              <a href="https://esforms.netlify.app/reject/pettycash?id=${id}&file=${server}${fileName}" style="background-color:#df2b26; border:0px solid #333333; border-color:#333333; border-radius:5px; border-width:0px; color:#ffffff; display:inline-block; font-size:18px; font-weight:bold; letter-spacing:0px; line-height:normal; padding:12px 18px 12px 18px; text-align:center; text-decoration:none; border-style:solid; font-family:inherit; width:174px; margin: 5px 0;" target="_blank">Reject</a>
+                                                              <a href="http://localhost:3000/reject/pettycash?id=${id}&file=${server}${fileName}" style="background-color:#df2b26; border:0px solid #333333; border-color:#333333; border-radius:5px; border-width:0px; color:#ffffff; display:inline-block; font-size:18px; font-weight:bold; letter-spacing:0px; line-height:normal; padding:12px 18px 12px 18px; text-align:center; text-decoration:none; border-style:solid; font-family:inherit; width:174px; margin: 5px 0;" target="_blank">Reject</a>
                                                             </td>
                                                           </tr>
                                                         </tbody>

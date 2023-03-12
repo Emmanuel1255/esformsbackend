@@ -25,7 +25,7 @@ module.exports = function (user, req,details) {
   //         : director
 
   return {
-    to: ['osman.kamara@sl.easysolar.org'],
+    to: 'emmanuel.kamanda@sl.easysolar.org',
     // bcc: 'request-tracker@easysolar.org',
     from: 'techadmin@easysolar.org', // Use the email address or domain you verified above
     subject: `Petty Cash Request from ${user['Full Name']}`,

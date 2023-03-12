@@ -67,11 +67,21 @@ approveRouter.get('/approve/perdiemfinance', async (req, res) => {
     const query = { _id: id };
     const request = await Collection.findOne(query);
     const user = request.user;
-    await Collection.updateOne(query, { $set: { approvalStatus: "approved" }});
-    await sendMail(pdfinanceMsg(user, request),pduserlmMsg(user, request));
-    return res.send(
-      'You have approved this request. Relevant Parties will be notified.'
-    );
+    const approvalStatus = request.approvalStatus;
+
+    if (approvalStatus === 'pending') {
+      await Collection.updateOne(query, { $set: { approvalStatus: "approved" }});
+      await sendMail(pdfinanceMsg(user, request),pduserlmMsg(user, request));
+      return res.send(
+        'You have approved this request. Relevant Parties will be notified.'
+      );
+    } else if (approvalStatus === 'approved') {
+      return res.send('This request has already been approved.');
+    } else if (approvalStatus === 'rejected') {
+      return res.send('This request has been rejected.');
+    } else {
+      return res.send('Invalid approval status.');
+    }
   } catch (err) {
     console.log(err);
   } finally {
@@ -80,6 +90,7 @@ approveRouter.get('/approve/perdiemfinance', async (req, res) => {
 
   res.send(id);
 });
+
 // 650099.
 
 
@@ -118,10 +129,21 @@ approveRouter.get('/approve/pettycashfinance', async (req, res) => {
     const request = await Collection.findOne(query);
     const user = request.user;
     const details = request.details;
-    await sendMail(pcfinanceMsg(user, request, details), pcuserlmMsg(user, request, details));
-    return res.send(
-      'You have approved this request. Relevant Parties will be notified.'
-    );
+
+    // Check the current approval status and send email/notification accordingly
+    const approvalStatus = details.approvalStatus;
+    if (approvalStatus === 'pending') {
+      details.approvalStatus = 'approved';
+      await Collection.updateOne(query, { $set: { details } });
+      await sendMail(pcfinanceMsg(user, request, details), pcuserlmMsg(user, request, details));
+      return res.send('You have approved this request. Relevant Parties will be notified.');
+    } else if (approvalStatus === 'approved') {
+      return res.send('This request has already been approved.');
+    } else if (approvalStatus === 'rejected') {
+      return res.send('This request has already been Rejected.');
+    } else {
+      return res.send('Invalid approval status.');
+    }
   } catch (err) {
     console.log(err);
   } finally {
@@ -130,6 +152,8 @@ approveRouter.get('/approve/pettycashfinance', async (req, res) => {
 
   res.send(id);
 });
+
+
 
 approveRouter.get('/approve/vehicle', async (req, res) => {
   const id = ObjectId(`${req.query.id}`);

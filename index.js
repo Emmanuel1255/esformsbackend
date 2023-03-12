@@ -17,8 +17,6 @@ const viewRouter = require('./controllers/vrequest');
 const path = require('path');
 
 
-// Require the reminderJob.js file
-require('./controllers/reminderJob');
 
 global.appRoot = path.resolve(__dirname);
 app.use(cors());
